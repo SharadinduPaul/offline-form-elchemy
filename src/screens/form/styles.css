@@ -1,0 +1,20 @@
+.form-container {
+  min-height: 700px;
+  width: 100%;
+  max-width: 500px;
+
+  border-radius: 14px;
+  background-color: #1a202a;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 16px;
+
+  /* padding: 32px 26px; */
+  padding-block: 42px;
+  padding-inline: Clamp(12px, 3vw, 42px);
+
+  outline: 2px solid #fffa;
+}

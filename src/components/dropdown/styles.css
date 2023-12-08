@@ -1,0 +1,58 @@
+.dropdown {
+  width: 100%;
+  position: relative;
+}
+.dropdown input {
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #fff0;
+  border: 1px solid rgb(73, 82, 92);
+  padding-inline: 12px;
+
+  font-size: 15px;
+  font-weight: 400;
+  color: #ffffffe7;
+  caret-color: rgb(170, 204, 255);
+  outline: none;
+
+  transition: 0.5s border;
+  transition: 0.3s background-color;
+}
+.dropdown > :is(input, textarea):focus-within {
+  border: 1px solid rgb(163, 191, 221);
+  background-color: rgba(255, 255, 255, 0.048);
+}
+.dropdown > .options {
+  position: absolute;
+  left: 0;
+  top: 40;
+
+  width: 100%;
+  height: fit-content;
+  max-height: 150px;
+  border-radius: 4px;
+  overflow-y: auto;
+
+  background-color: #7babe9;
+  z-index: 100;
+}
+.dropdown > h4 {
+  font-size: 12px;
+  font-weight: 500;
+  color: #8f9ba7;
+  margin-bottom: 6px;
+}
+.dropdown .star {
+  color: rgb(49, 154, 240) !important;
+}
+
+.dropdown .option {
+  height: 24px;
+  width: 100%;
+  cursor: pointer;
+  padding-left: 16px;
+}
+.dropdown .option:hover {
+  background-color: #fff8;
+}

@@ -1,0 +1,41 @@
+.input-main {
+  width: 100%;
+}
+.input-main > h4 {
+  font-size: 12px;
+  font-weight: 500;
+  color: #8f9ba7;
+  margin-bottom: 6px;
+}
+.input-main .star {
+  color: rgb(49, 154, 240) !important;
+}
+.input-main > :is(input, textarea) {
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #fff0;
+  border: 1px solid rgb(73, 82, 92);
+  padding-inline: 12px;
+
+  font-size: 15px;
+  font-weight: 400;
+  color: #ffffffe7;
+  caret-color: rgb(170, 204, 255);
+  outline: none;
+
+  transition: 0.5s border;
+  transition: 0.3s background-color;
+}
+.input-main > :is(input, textarea):focus-within {
+  border: 1px solid rgb(163, 191, 221);
+  background-color: rgba(255, 255, 255, 0.048);
+}
+.input-main > textarea {
+  min-height: 100px;
+  padding-block: 12px;
+  resize: vertical;
+}
+.input-main > input {
+  height: 40px;
+}
