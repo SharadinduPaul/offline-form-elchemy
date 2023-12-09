@@ -20,6 +20,7 @@ export default function Form() {
     activeForm,
     setActiveForm,
     handleReset,
+    errors,
   } = useForm();
 
   const formFields1: TinputFields[] = Object.keys(
@@ -51,6 +52,7 @@ export default function Form() {
           value={formData[field]}
           required={fieldData?.required}
           handleChange={(val) => handleInputChange(field, val)}
+          {...{ errors }}
         />
       );
     } else {
@@ -64,6 +66,7 @@ export default function Form() {
           title={fieldData?.fieldName}
           required={fieldData?.required}
           textArea={fieldData?.fieldType === "textarea"}
+          {...{ errors }}
         />
       );
     }
