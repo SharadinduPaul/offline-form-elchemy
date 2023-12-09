@@ -1,22 +1,31 @@
-// import React from "react";
-import Wrapper from "../../components/wrapper";
-import "./styles.css";
-import Title from "../../components/title";
+import React from "react";
+
 import useForm from "./useForm.hook";
+import Wrapper from "../../components/wrapper";
+import Title from "../../components/title";
 import Input from "../../components/input";
-import { TExtendedDataType, formExtendedData, formExtendedData2 } from "./data";
-import { TinputFields } from "./types";
 import SearchableDropdown from "../../components/dropdown";
+import Button from "../../components/button";
+
+import { TinputFields } from "./types";
+import { TExtendedDataType, formExtendedData, formExtendedData2 } from "./data";
+import "./styles.css";
 
 export default function Form() {
-  const { formData, handleInputChange } = useForm();
+  const {
+    formData,
+    handleInputChange,
+    handleForm1Submit,
+    activeForm,
+    setActiveForm,
+  } = useForm();
 
   const formFields1: TinputFields[] = Object.keys(
     formExtendedData
   ) as (keyof typeof formExtendedData)[];
   const formFields2: TinputFields[] = Object.keys(
     formExtendedData2
-  ) as (keyof typeof formExtendedData)[];
+  ) as (keyof typeof formExtendedData2)[];
 
   console.log(formData);
 
@@ -27,7 +36,7 @@ export default function Form() {
         fieldData.children
       ) as (keyof typeof fieldData.children)[];
       return (
-        <div style={{display: 'flex', gap: '20px'}}>
+        <div style={{ display: "flex", gap: "20px" }}>
           {childrenFields.map((item) => getElement(item, fieldData.children))}
         </div>
       );
@@ -59,10 +68,34 @@ export default function Form() {
   };
   return (
     <Wrapper>
-      <main className="form-container">
-        <Title>Fill your details</Title>
-        {formFields1.map((field) => getElement(field))}
-      </main>
+      {activeForm === 1 ? (
+        <main className="form-container">
+          <Title>Fill your details</Title>
+          {formFields1.map((field) => getElement(field))}
+          <Button
+            style={{ alignSelf: "flex-end" }}
+            onClick={handleForm1Submit}
+            success
+          >
+            Next
+          </Button>
+        </main>
+      ) : (
+        <main className="form-container">
+          <Title>Fill additional details</Title>
+          {formFields2.map((field) => getElement(field, formExtendedData2))}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: "auto",
+            }}
+          >
+            <Button onClick={() => setActiveForm(1)}>Previous</Button>
+            <Button success>Submit</Button>
+          </div>
+        </main>
+      )}
     </Wrapper>
   );
 }

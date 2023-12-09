@@ -1397,10 +1397,12 @@ export const formExtendedData2: TExtendedDataType = {
   },
   EXPERIENCE: {
     fieldName: "Experience",
+    fieldType: "textarea",
     required: true,
   },
   EDUCATION: {
     fieldName: "Education",
+    fieldType: "textarea",
     required: true,
   },
   GITHUB_LINK: {
