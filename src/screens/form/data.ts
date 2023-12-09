@@ -1292,12 +1292,13 @@ export const countries: Tdropdown[] = [
   },
 ];
 
-type TExtendedDataType = {
+export type TExtendedDataType = {
   [x in TinputFields]?: {
-    fieldName: string;
+    fieldName?: string;
     fieldType?: React.HTMLInputTypeAttribute | "dropdown" | "textarea";
     required?: boolean;
     dropdown?: Tdropdown[];
+    children?: TExtendedDataType;
   };
 };
 export const formExtendedData: TExtendedDataType = {
@@ -1313,16 +1314,31 @@ export const formExtendedData: TExtendedDataType = {
     required: true,
   },
   AGE: {
-    fieldName: "Age",
-    fieldType: "number",
-    required: true,
+    children: {
+      AGE: {
+        fieldName: "Age",
+        fieldType: "number",
+        required: true,
+      },
+      GENDER: {
+        fieldName: "Gender",
+        fieldType: "dropdown",
+        dropdown: genderData,
+        required: true,
+      },
+    },
   },
-  GENDER: {
-    fieldName: "Gender",
-    fieldType: "dropdown",
-    dropdown: genderData,
-    required: true,
-  },
+  // AGE: {
+  //   fieldName: "Age",
+  //   fieldType: "number",
+  //   required: true,
+  // },
+  // GENDER: {
+  //   fieldName: "Gender",
+  //   fieldType: "dropdown",
+  //   dropdown: genderData,
+  //   required: true,
+  // },
   PHONE: {
     fieldName: "Phone",
     fieldType: "number",
@@ -1345,15 +1361,19 @@ export const formExtendedData: TExtendedDataType = {
     fieldType: "textarea",
   },
   CITY: {
-    fieldName: "City",
-    fieldType: "dropdown",
-    dropdown: cities,
-    required: true,
-  },
-  STATE: {
-    fieldName: "State",
-    fieldType: "dropdown",
-    dropdown: states,
+    children: {
+      CITY: {
+        fieldName: "City",
+        fieldType: "dropdown",
+        dropdown: cities,
+        required: true,
+      },
+      STATE: {
+        fieldName: "State",
+        fieldType: "dropdown",
+        dropdown: states,
+      },
+    },
   },
   COUNTRY: {
     fieldName: "Country",

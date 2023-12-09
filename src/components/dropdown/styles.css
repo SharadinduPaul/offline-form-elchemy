@@ -48,10 +48,16 @@
 }
 
 .dropdown .option {
-  height: 24px;
+  height: fit-content;
   width: 100%;
   cursor: pointer;
-  padding-left: 16px;
+  padding-left: 14px;
+  padding-block: 5px;
+  font-size: 14px;
+  font-weight: 400;
+
+  display: flex;
+  align-items: center;
 }
 .dropdown .option:hover {
   background-color: #fff8;
