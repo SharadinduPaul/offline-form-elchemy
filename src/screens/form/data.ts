@@ -1291,7 +1291,7 @@ export const countries: Tdropdown[] = [
     label: "Unknown or unspecified country",
   },
 ];
-
+// export const 
 export type TExtendedDataType = {
   [x in TinputFields]?: {
     fieldName?: string;
@@ -1328,17 +1328,6 @@ export const formExtendedData: TExtendedDataType = {
       },
     },
   },
-  // AGE: {
-  //   fieldName: "Age",
-  //   fieldType: "number",
-  //   required: true,
-  // },
-  // GENDER: {
-  //   fieldName: "Gender",
-  //   fieldType: "dropdown",
-  //   dropdown: genderData,
-  //   required: true,
-  // },
   PHONE: {
     fieldName: "Phone",
     fieldType: "number",

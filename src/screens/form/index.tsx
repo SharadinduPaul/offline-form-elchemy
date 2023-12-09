@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 
 import useForm from "./useForm.hook";
 import Wrapper from "../../components/wrapper";
@@ -16,8 +16,10 @@ export default function Form() {
     formData,
     handleInputChange,
     handleForm1Submit,
+    handleForm2Submit,
     activeForm,
     setActiveForm,
+    handleReset,
   } = useForm();
 
   const formFields1: TinputFields[] = Object.keys(
@@ -36,7 +38,7 @@ export default function Form() {
         fieldData.children
       ) as (keyof typeof fieldData.children)[];
       return (
-        <div style={{ display: "flex", gap: "20px" }}>
+        <div key={field} style={{ display: "flex", gap: "20px" }}>
           {childrenFields.map((item) => getElement(item, fieldData.children))}
         </div>
       );
@@ -72,27 +74,28 @@ export default function Form() {
         <main className="form-container">
           <Title>Fill your details</Title>
           {formFields1.map((field) => getElement(field))}
-          <Button
-            style={{ alignSelf: "flex-end" }}
-            onClick={handleForm1Submit}
-            success
-          >
-            Next
-          </Button>
+          <div className="row">
+            <Button onClick={handleReset} success>
+              Reset
+            </Button>
+            <Button
+              style={{ alignSelf: "flex-end" }}
+              onClick={handleForm1Submit}
+              success
+            >
+              Next
+            </Button>
+          </div>
         </main>
       ) : (
         <main className="form-container">
           <Title>Fill additional details</Title>
           {formFields2.map((field) => getElement(field, formExtendedData2))}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginTop: "auto",
-            }}
-          >
+          <div className="row">
             <Button onClick={() => setActiveForm(1)}>Previous</Button>
-            <Button success>Submit</Button>
+            <Button onClick={handleForm2Submit} success>
+              Submit
+            </Button>
           </div>
         </main>
       )}
