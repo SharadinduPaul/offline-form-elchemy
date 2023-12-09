@@ -1,6 +1,11 @@
 import React from "react";
 import { TinputFields } from "./types";
-import { formExtendedData, formExtendedData2 } from "./data";
+import {
+  form1Fields,
+  form2Fields,
+  formExtendedData,
+  formExtendedData2,
+} from "./data";
 import { toast } from "react-toastify";
 import { isValidEmail, isValidUrl } from "./validators";
 
@@ -143,8 +148,13 @@ export default function useForm() {
     toast("Form submitted successfully");
   };
 
-  const handleReset = () => {
-    setFormData({});
+  const handleReset = (form: 1 | 2) => {
+    const fields = form == 1 ? form1Fields : form2Fields;
+
+    const emptyData: TFormData = {};
+    fields.forEach((field) => (emptyData[field] = undefined));
+
+    setFormData((prev) => ({ ...prev, ...emptyData }));
   };
 
   return {

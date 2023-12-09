@@ -1292,6 +1292,29 @@ export const countries: Tdropdown[] = [
   },
 ];
 
+export const form1Fields: TinputFields[] = [
+  "FIRST_NAME",
+  "LAST_NAME",
+  "MIDDLE_NAME",
+  "AGE",
+  "GENDER",
+  "PHONE",
+  "EMAIL",
+  "WORK_EMAIL",
+  "ADDRESS_LINE_1",
+  "ADDRESS_LINE_2",
+  "CITY",
+  "STATE",
+  "COUNTRY",
+  "PINCODE",
+];
+export const form2Fields: TinputFields[] = [
+  "TECHNICAL_SKILLS",
+  "VERBAL_SPOKEN",
+  "EXPERIENCE",
+  "EDUCATION",
+  "GITHUB_LINK",
+];
 // export const
 export type TExtendedDataType = {
   [x in TinputFields]?: {

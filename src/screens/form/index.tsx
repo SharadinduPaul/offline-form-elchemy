@@ -78,7 +78,7 @@ export default function Form() {
           <Title>Fill your details</Title>
           {formFields1.map((field) => getElement(field))}
           <div className="row">
-            <Button onClick={handleReset} success>
+            <Button onClick={() => handleReset(1)} success>
               Reset
             </Button>
             <Button
@@ -96,6 +96,9 @@ export default function Form() {
           {formFields2.map((field) => getElement(field, formExtendedData2))}
           <div className="row">
             <Button onClick={() => setActiveForm(1)}>Previous</Button>
+            <Button onClick={() => handleReset(2)} success>
+              Reset
+            </Button>
             <Button onClick={handleForm2Submit} success>
               Submit
             </Button>
