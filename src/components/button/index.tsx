@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Icommon } from "../../types/common";
 import "./styles.css";
 
